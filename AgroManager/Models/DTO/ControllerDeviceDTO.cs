@@ -1,4 +1,5 @@
 ﻿using AgroManager.Models.Domain;
+using System.ComponentModel.DataAnnotations;
 
 namespace AgroManager.Models.DTO
 {
@@ -15,13 +16,13 @@ namespace AgroManager.Models.DTO
 
         public string? SerialNumber { get; set; }
 
-        public Guid? FieldId { get; set; }
-        public Field? Field { get; set; }
+     
         // Ownership boundary (row-level security)
         public Guid OwnerUserId { get; set; }
     }
     public class AddControllerDeviceDTO
     {
+        [Required]
         public string Name { get; set; } = string.Empty;
         public string Model { get; set; } = string.Empty;
         public DateTime InstallationDate { get; set; }
@@ -30,6 +31,7 @@ namespace AgroManager.Models.DTO
     }
     public class UpdateControllerDeviceDTO
     {
+        [Required]
         public string Name { get; set; } = string.Empty;
         public string Model { get; set; } = string.Empty;
         public DateTime InstallationDate { get; set; }

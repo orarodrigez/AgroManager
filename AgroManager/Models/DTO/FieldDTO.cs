@@ -1,4 +1,5 @@
 ﻿using AgroManager.Models.Domain;
+using System.ComponentModel.DataAnnotations;
 
 namespace AgroManager.Models.DTO
 {
@@ -17,8 +18,9 @@ namespace AgroManager.Models.DTO
     }
     public class AddFieldDTO
     {
-       
-        public string Name { get; set; }= string.Empty; 
+        [Required]
+        public string Name { get; set; }= string.Empty;
+        [Required]
         public double Area { get; set; } // in hectares
         public string CropType { get; set; } = string.Empty;
         public DateTime LastIrrigationDate { get; set; }
@@ -30,7 +32,10 @@ namespace AgroManager.Models.DTO
     }
     public class UpdateFieldDTO
     {
+
+        [Required]
         public string Name { get; set; }= string.Empty;
+        [Required]
         public double Area { get; set; } // in hectares
         public string CropType { get; set; }   = string.Empty;
         public DateTime LastIrrigationDate { get; set; }

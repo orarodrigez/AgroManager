@@ -67,6 +67,10 @@ namespace AgroManager.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] AddFieldDTO field)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
             //map or convert dto to domain
             var fieldDomain = new Field
             {
@@ -103,6 +107,10 @@ namespace AgroManager.Controllers
             if (fieldDomain == null)
             {
                 return NotFound();
+            }
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
             }
             //map or convert dto to domain
             fieldDomain.Name = field.Name;

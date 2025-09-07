@@ -1,6 +1,6 @@
 
 using AgroManager.Data;
-using AgroManager.Repositories;
+
 using Microsoft.EntityFrameworkCore;
 // Add services to the container.
 var builder = WebApplication.CreateBuilder(args);
@@ -11,7 +11,6 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AgroDBContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("agroManagerConnectionString") ??
     throw new InvalidOperationException("Connection string 'AgroManagerContext' not found.")));
-builder.Services.AddScoped<IFieldReository,SQLFieldRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

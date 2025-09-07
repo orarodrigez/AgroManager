@@ -4,6 +4,7 @@ namespace AgroManager.Models.DTO
 {
     public class UserDTO
     {
+        [Required]
         public Guid Id { get; set; }
         public string Username { get; set; } = string.Empty;
         [EmailAddress]
@@ -16,6 +17,7 @@ namespace AgroManager.Models.DTO
     }
     public class AddUserDTO
     {
+        [Required]
         public string Username { get; set; }   = string.Empty;
         [EmailAddress]
         [MaxLength(320)]
@@ -26,6 +28,7 @@ namespace AgroManager.Models.DTO
     }
     public class UpdateUserDTO
     {
+        [Required]
         public string Username { get; set; } = string.Empty;
         [EmailAddress]
         [MaxLength(320)]

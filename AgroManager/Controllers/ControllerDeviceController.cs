@@ -65,6 +65,10 @@ namespace AgroManager.Controllers
         [HttpPost]
         public async Task<IActionResult> AddControllerDevice(Models.DTO.AddControllerDeviceDTO addControllerDeviceDTO)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
             var controllerDevice = new Models.Domain.ControllerDevice
             {
                 Id = Guid.NewGuid(),

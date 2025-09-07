@@ -57,6 +57,10 @@ namespace AgroManager.Controllers
         [HttpPost]
         public async Task<IActionResult> AddUser(Models.DTO.AddUserDTO addUserDTO)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
             var userDomain = new Models.Domain.User
             {
                 Id = Guid.NewGuid(),
@@ -83,6 +87,10 @@ namespace AgroManager.Controllers
         [Route("{id:guid}")]
         public async Task< IActionResult> UpdateUser([FromRoute] Guid id, Models.DTO.UpdateUserDTO updateUserDTO)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
             var userDomain = await agroDBContext.Users.FirstOrDefaultAsync(x => x.Id == id);
             if (userDomain == null)
             {
